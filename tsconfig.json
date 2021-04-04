@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "ES6",
+		"watch": true,
+		"esModuleInterop": true
+	},
+	"exclude": ["node_modules"]
+}

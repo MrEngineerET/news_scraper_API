@@ -1,0 +1,3 @@
+TODO adding the source configration to the database source model
+TODO add a way to change the saved configration in the database to a json file in scrapper/config
+TODO send message from scrapper to the bot client
