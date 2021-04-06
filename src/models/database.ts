@@ -23,28 +23,24 @@ const sequelize = new Sequelize({
 })
 
 //define all models found in __dirname
-function defineModels() {
-	const basename = path.basename(module.filename)
-	fs.readdirSync(__dirname)
-		.filter(function (file) {
-			return file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js'
-		})
-		.forEach(function (file) {
-			const model = require(path.join(__dirname, file)).default(sequelize, DataTypes)
-			db[model.name] = model
-		})
-	debugDatabase('All database models are defined')
-}
+const basename = path.basename(module.filename)
+fs.readdirSync(__dirname)
+	.filter(function (file) {
+		return file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js'
+	})
+	.forEach(function (file) {
+		const model = require(path.join(__dirname, file)).default(sequelize, DataTypes)
+		db[model.name] = model
+	})
+debugDatabase('All database models are defined')
 
 // excute the relationship
-function excuteRelationship() {
-	Object.keys(db).forEach(function (modelName) {
-		if (db[modelName].associate) {
-			db[modelName].associate(db)
-		}
-	})
-	debugDatabase('all database models relationship are excuted')
-}
+Object.keys(db).forEach(function (modelName) {
+	if (db[modelName].associate) {
+		db[modelName].associate(db)
+	}
+})
+debugDatabase('all database models relationship are excuted')
 
 // it checks if the database has successfully connected or throw and error if not
 export async function checkDBConnection() {
@@ -52,10 +48,6 @@ export async function checkDBConnection() {
 		// check connection
 		await sequelize.authenticate()
 		debugDatabase('Connection has been established successfully.')
-		// defining all the models
-		defineModels()
-		// excute models relationships
-		excuteRelationship()
 	} catch (error) {
 		debugDatabase('Error Error :: Unable to connect to the database')
 		throw Error(`Unable to connect to the database:, ${error}`)

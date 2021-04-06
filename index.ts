@@ -2,6 +2,7 @@ require('dotenv').config()
 import { registerBotHandler } from './src/telegramBot/bot'
 import { checkDBConnection, synchronizeDB } from './src/models/database'
 import app, { debugExpress } from './app'
+const { runScraper, test } = require('./src/scraper')
 
 const PORT = process.env.PORT || 8080
 
@@ -9,8 +10,13 @@ const PORT = process.env.PORT || 8080
 checkDBConnection().then(() => synchronizeDB())
 
 const server = app.listen(PORT, () => debugExpress(`Express app starts listening on PORT ${PORT}`))
+
 // register the webhook url resource address to express app
-registerBotHandler(app)
+// registerBotHandler(app)
+
+setTimeout(() => {
+	runScraper()
+}, 5000)
 
 process.on('unhandledRejection', err => {
 	console.log('UNHANDLED REJECTION! 💥 Shutting down...')

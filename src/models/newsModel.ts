@@ -17,7 +17,7 @@ export default function (sequelize, DataTypes) {
 		article: {
 			type: DataTypes.TEXT,
 		},
-		imageURL: DataTypes.STRING,
+		image: DataTypes.STRING,
 		posted: {
 			type: DataTypes.BOOLEAN,
 			defaultValue: false,
@@ -26,7 +26,7 @@ export default function (sequelize, DataTypes) {
 			type: DataTypes.BOOLEAN,
 			defaultValue: false,
 		},
-		newsDate: DataTypes.DATE,
+		date: DataTypes.DATE,
 	})
 
 	News.associate = function (models) {
