@@ -11,7 +11,7 @@ export default function (sequelize, DataTypes) {
 			allowNull: false,
 		},
 		title: {
-			type: DataTypes.STRING,
+			type: DataTypes.TEXT,
 		},
 		author: DataTypes.STRING,
 		article: {

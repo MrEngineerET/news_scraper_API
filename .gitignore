@@ -4,6 +4,8 @@ client/
 telegramBot/
 test.js
 todo.txt
+scripts.js
+test/
 
 *.js
 
