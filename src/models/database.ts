@@ -20,6 +20,7 @@ const sequelize = new Sequelize({
 	password: DATABASE_PASSWORD,
 	// password: '',
 	logging: msg => debugDatabase(msg),
+	define: { charset: 'utf8', collate: 'utf8_general_ci' },
 })
 
 //define all models found in __dirname
