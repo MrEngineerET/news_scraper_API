@@ -1,3 +1,5 @@
+import bot from '../../bot'
+
 export default function (sequelize, DataTypes) {
 	const News = sequelize.define('News', {
 		_id: {
@@ -27,6 +29,13 @@ export default function (sequelize, DataTypes) {
 			defaultValue: false,
 		},
 		date: DataTypes.DATE,
+	})
+
+	News.afterCreate(async doc => {
+		let news = doc.dataValues
+		const source = await doc.getSource()
+		news.source = source.dataValues.name
+		bot.sendToGroup(news)
 	})
 
 	News.associate = function (models) {

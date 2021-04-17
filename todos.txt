@@ -1,3 +1,11 @@
-TODO adding the source configration to the database source model
-TODO add a way to change the saved configration in the database to a json file in scrapper/config
-TODO send message from scrapper to the bot client
+TODO 2merkato dates should be parsed additionally to get the clean date string
+TODO The last 2 paragraph of 2 merkato should be trimmed
+TODO Ethiopian monitor is not working : ECONNREFUSED 127.0.0.1:8080
+TODO Fana needs a tons of article editing
+
+
+TODO fortune image is not scraped 
+TODO no date, article and image for Further Africa
+TODO new business ethiopia finance photos are very small in size; even though the article is scrapped, but it is not showing in telegram 
+TODO new business ethiopia trade photos are very small in size; even though the article is scrapped, but it is not showing in telegram 
+TODO new business ethiopia economy photos are very small in size; even though the article is scrapped, but it is not showing in telegram 
